@@ -1,0 +1,134 @@
+:root{
+  --page-1-color: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  --page-2-color: linear-gradient(to right, #434343 0%, black 100%);
+  --page-3-color: teal;
+  --page-4-color: linear-gradient(to right, #8e2de2, #4a00e0);
+  --animate-speed: 2s;
+  --page-2-header-color: #f3f3f3;
+  --page-3-header-color: #fff;
+  --page-4-header-color: black;
+  --page-1-btn-animate-speed: 0.5s;
+}
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Page-colors */
+#page-1{background: var(--page-1-color);}
+#page-2{background: var(--page-2-color);}
+#page-3{background: var(--page-3-color);}
+#page-4{background: var(--page-4-color);}
+#page-2 h1{color: var(--page-2-header-color)}
+#page-3 h1{color: var(--page-3-header-color)}
+#page-4 h1{color: var(--page-4-header-color)}
+
+.logo{
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  margin: 0;
+  padding: 0;
+  color: rgb(0, 254, 249);
+}
+
+.page{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 4rem;
+}
+
+.page h1{
+  font-size: 4rem;
+  line-height: 1.2;
+  margin: 1rem;
+}
+
+.page p{
+  font-size: 1.3rem;
+}
+
+.btn{
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: #f4f4f4;
+  color: #333;
+  text-decoration: none;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  border: none;
+  transition: all 0.3s ease-in;
+}
+
+.btn:hover,
+.btn-dark{
+  background: #333;
+  color: #fff;
+}
+
+.btn-dark:hover{
+  background: #f4f4f4;
+  color: #333;
+}
+
+.btn:hover{
+  transform: rotate(15deg);
+}
+
+#page-1 .btn:hover{
+  transform: none;
+  animation: btn var(--page-1-btn-animate-speed) 1 ease-in-out forwards;
+}
+
+@keyframes btn{
+  to{
+    transform: rotate(360deg);
+  }
+}
+
+#page-1 h1{
+  text-shadow: 10px 10px 4px black;
+}
+
+/* Page-1 Animations */
+#page-1 h1{
+  transform: translateY(-1200px);
+  animation: heading var(--animate-speed) 1 ease-in forwards;
+}
+
+#page-1 p{
+  transform: translateX(-1800px);
+  animation: paragraph var(--animate-speed) 1 1s ease-in forwards;
+}
+/* Keyframes */
+@keyframes heading{
+  to{
+    transform: translateY(0);
+  }
+}
+
+@keyframes paragraph{
+  to{
+    transform: translateX(0);
+  }
+}
+
+@media(max-width: 1000px){
+  .btn{transition: all 0.1s ease-in;}
+}
+
+@media(max-width: 600px){
+  .page h1{font-size: 2.7rem;}
+  .page p{font-size: 1rem;}
+  .page{padding: 0 1rem;}  
+  /* .logo{top: 30px; left: 30px;} */
+}
